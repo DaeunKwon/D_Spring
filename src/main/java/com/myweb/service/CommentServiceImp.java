@@ -30,7 +30,6 @@ public class CommentServiceImp implements CommentService{
 	}
 	@Override
 	public CommentDTO list(Criteria cri, int pno) {
-		// 이렇게 코딩하시면 초보티내는 겁니다!!!!
 		/*List<CommentVO> list = cdao.selectList(pno, cri);
 		int totalCnt = cdao.selectOne(pno);
 		CommentDTO cdto = new CommentDTO(totalCnt, list);*/
