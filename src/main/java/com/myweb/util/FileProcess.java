@@ -51,11 +51,11 @@ public class FileProcess {
 		if (new_imgfile.isEmpty()) {
 			pvo.setImgfile(imgfile);
 		}else {
-			String orgFileName = new_imgfile.getOriginalFilename(); // 첨부한 파일에서 파일이름 추출
-			String saveFileName = UUID.randomUUID().toString() + "_" + orgFileName; // 중복되지 않는 파일이름 생성
-			File file = new File(upImages+saveFileName); // 파일객체 생성
-			new_imgfile.transferTo(file); // 파일 객체 복사
-			pvo.setImgfile(saveFileName); // vo객체에 파일명 저장
+			String orgFileName = new_imgfile.getOriginalFilename();
+			String saveFileName = UUID.randomUUID().toString() + "_" + orgFileName;
+			File file = new File(upImages+saveFileName);
+			new_imgfile.transferTo(file);
+			pvo.setImgfile(saveFileName);
 			fileRemove(imgfile);
 		}
 		return pvo;
@@ -66,22 +66,3 @@ public class FileProcess {
 		new File(upImages+imgfile).delete();
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
