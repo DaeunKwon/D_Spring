@@ -2,7 +2,7 @@
 
 - 이름: SpringMall (쇼핑몰 게시판)
 -	기간: 2020.03 ~ 2020.05
--	사용한 언어/기술: JAVA, Oracle Database, 
+-	사용한 언어/기술: Spring, JAVA, Oracle Database
 -	개요:
 ```
  1. Spring framework에서 Tomcat Server를 설치하고 Oracle DB와 연동하여 웹 페이지 구축
