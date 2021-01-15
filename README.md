@@ -2,12 +2,11 @@
 
 - 이름: SpringMall (쇼핑몰 게시판)
 -	기간: 2020.03 ~ 2020.05
--	사용한 언어/기술: Spring, JAVA, Oracle Database
 -	개요:
 ```
- 1. Spring framework에서 Tomcat Server를 설치하고 Oracle DB와 연동하여 웹 페이지 구축
+ 1. Spring framework에서의 웹 페이지 개발
  2. 상품 목록 페이지가 페이징 처리되어 있고 사용자가 원하는 상품을 찾을 수 있는 쇼핑몰 게시판
- 3. 사용자는 상품 등록, 수정, 삭제할 수 있으며 상품 목록을 볼 수 있고 상품 상세 페이지에 댓글을 작성할 수 있다.
+ 3. 사용자는 상품 등록, 수정, 삭제할 수 있으며 상품 목록을 볼 수 있고 상품 상세 페이지에 댓글을 작성할 수 있다
  ```
   
 -	목표 :
@@ -27,9 +26,17 @@
 - 내용 :
 ```
  * 개발 환경 세팅
-  1. STS에 Tomcat server 설치
-  2. Oracle Database 설치하고 유저 생성, 권한 부여
-  3. HTML5, Bootstrap4 이용하여 프론트엔드 세팅
+  - Front-End
+   1. HTML5
+   2. Bootstrap4
+   3. jQuery3
+  - Back-End (전자정부프레임워크)
+   1. Spring (STS 3.9)
+   2. JDK 1.8
+   3. Oracle 11g
+   4. Mybatis
+   5. Tomcat Server v8.5
+   6. Java 8
   
  * DB 설계
   1. 상품 테이블(tbl_product)
@@ -41,7 +48,7 @@
    상품 최종 수정일(modd8)
    조회수(readcount)
    이미지파일(imgfile)
-   +댓글개수(commentcnt)
+   +댓글 개수(commentcnt)
   2. 댓글 테이블(tbl_comment)
    댓글 번호(cno) > contraints로 기본키 설정 (기본키 테이블(tbl_comment_pk) 생성), index 생성 (자동 증가)
    상품 번호(pno) (외래키-상품 테이블 참조)
@@ -50,16 +57,16 @@
    댓글 등록 날짜()
    댓글 수정 날짜()
    
- * Back
+ * Back-End
   - 기본 원리
    1. client가 request 요청 > Controller로 request 전달 > Service interface로 전달 > ServiceImp class로 전달 (위임) > DAO 객체 통해 DB에 접근 > mapper.xml에 정의된 sql문을 통해 요청한 request의 결과값 반환
     > DAO > ServiceImp class > Controller > 요청한 request의 결과가 browser에 나타남
    2. servlet-context.xml에서 요청 들어온 request를 어떤 식으로 처리할지 명시 (ViewResolver가 /***.jsp/ 형태를 가진 파일을 browser에 띄워줌)
    
   - Controller
-   1. ProductController
+   1. ProductCtrl
     ~ 상품과 관련된 전반적 기능 컨트롤 (상품 리스트 출력, 등록, 수정, 삭제 등)
-   2. CommentController
+   2. CommentCtrl
     ~ 댓글과 관련된 전반적 기능 컨트롤
     ~ @RestController 사용
     
@@ -98,9 +105,11 @@
     1. ProductMapper
      ~ 상품과 관련된 자료를 DB에서 꺼내오기 위한 SQL 정의
      ~ 상품 검색 기능 (like 연산자 사용)
-     ~ 페이징 (DB index(rownum), 서브 쿼리문 사용)
+     ~ 페이징 (rownum, index 사용, 서브 쿼리문에 INDEX_DESC 기법으로 조회하기 위해 주석 추가)
+    2. CommentMapper
+     ~ 댓글과 관련된 자료를 DB에서 꺼내오기 위한 SQL 정의
    
- * Front
+ * Front-End
   - 홈 페이지
    메인 화면의 사진을 누르면 상품 목록 페이지로 이동
   
