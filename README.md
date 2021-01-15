@@ -52,7 +52,8 @@
    
  * Back
   - 기본 원리
-   1. client가 request 요청 > Controller로 request 전달 > Service interface로 전달 > ServiceImp class로 전달 (위임) > DAO 객체 통해 DB에 접근 > mapper.xml에 정의된 sql문을 통해 요청한 request의 결과값 반환 > DAO > ServiceImp class > Controller > 요청한 request의 결과가 browser에 나타남
+   1. client가 request 요청 > Controller로 request 전달 > Service interface로 전달 > ServiceImp class로 전달 (위임) > DAO 객체 통해 DB에 접근 > mapper.xml에 정의된 sql문을 통해 요청한 request의 결과값 반환
+    > DAO > ServiceImp class > Controller > 요청한 request의 결과가 browser에 나타남
    2. servlet-context.xml에서 요청 들어온 request를 어떤 식으로 처리할지 명시 (ViewResolver가 /***.jsp/ 형태를 가진 파일을 browser에 띄워줌)
    
   - list
