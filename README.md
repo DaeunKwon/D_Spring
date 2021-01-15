@@ -30,6 +30,9 @@
   1. STS에 Tomcat server 설치
   2. Oracle Database 설치하고 유저 생성, 권한 부여
   3. HTML5, Bootstrap4 이용하여 프론트엔드 세팅
+  
+ - DB 설계
+  1. 
 
  - 홈 페이지
   메인 화면의 사진을 누르면 상품 목록 페이지로 이동
