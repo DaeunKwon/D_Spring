@@ -31,12 +31,11 @@
    2. Bootstrap4
    3. jQuery3
   - Back-End (전자정부프레임워크)
-   1. Spring (STS 3.9)
+   1. Spring 4.3 (STS 3.9)
    2. JDK 1.8
    3. Oracle 11g
    4. Mybatis
    5. Tomcat Server v8.5
-   6. Java 8
   
  * DB 설계
   1. 상품 테이블(tbl_product)
