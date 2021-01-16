@@ -40,7 +40,7 @@
   
  * DB 설계
   1. 상품 테이블(tbl_product)
-   상품 번호(pno) > contraints로 기본키 설정 (기본키 테이블(tbl_product_pk) 생성), index 생성 (자동 증가)
+   상품 번호(pno) > contraints로 기본키 설정 (기본키 테이블(tbl_product_pk) 생성, index 생성 (자동 증가)
    상품명(title)
    작성자(writer)
    상품 내용(content)
@@ -50,17 +50,17 @@
    이미지파일(imgfile)
    +댓글 개수(commentcnt)
   2. 댓글 테이블(tbl_comment)
-   댓글 번호(cno) > contraints로 기본키 설정 (기본키 테이블(tbl_comment_pk) 생성), index 생성 (자동 증가)
+   댓글 번호(cno) > contraints로 기본키 설정 (기본키 테이블(tbl_comment_pk) 생성, index 생성 (자동 증가)
    상품 번호(pno) (외래키-상품 테이블 참조)
-   댓글 내용()
+   댓글 내용(content)
    작성자(writer) (상품 작성자와 동일)
-   댓글 등록 날짜()
-   댓글 수정 날짜()
+   댓글 등록 날짜(regd8)
+   댓글 수정 날짜(modd8)
    
  * Back-End
   - 기본 원리
    1. client가 request 요청 > Controller로 request 전달 > Service interface로 전달 > ServiceImp class로 전달 (위임) > DAO 객체 통해 DB에 접근 > mapper.xml에 정의된 sql문을 통해 요청한 request의 결과값 반환
-    > DAO > ServiceImp class > Controller > 요청한 request의 결과가 browser에 나타남
+    > DAO > ServiceImp class > Controller > jsp 파일 > 요청한 request의 결과가 browser에 나타남
    2. servlet-context.xml에서 요청 들어온 request를 어떤 식으로 처리할지 명시 (ViewResolver가 /***.jsp/ 형태를 가진 파일을 browser에 띄워줌)
    
   - Controller
@@ -87,13 +87,14 @@
      ~ 댓글 페이징을 위해 필요한 자료 정의한 객체
      
    - Persistence
-    1. ProductDAO > ProductDAOImp (위임)
-    2. CommentDAO > CommentDAOImp (위임)
+    1. ProductDAO(interface) > ProductDAOImp (위임)
+    2. CommentDAO(interface) > CommentDAOImp (위임)
      ~ 상품/댓글과 관련된 기능을 처리하기 위한 함수를 정의하고 DB에 접근하는 객체
+     **** interface > implements 형태로 구현하는 이유: 객체 간 의존도 낮추고 함수 미리 정의하고 구현한 형태이기 때문에 유지보수 쉬워짐, 구현 코드를 수정하지 않고 사용하는 객체 수정 가능
      
    - Service
-    1. ProductService > ProductServiceImp
-    2. CommentService > CommentServiceImp
+    1. ProductService(interface) > ProductServiceImp
+    2. CommentService(interface) > CommentServiceImp
      ~ 컨트롤러로부터 받은 request를 처리하는 객체
      ~ DAO에 접근
      
