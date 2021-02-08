@@ -4,7 +4,7 @@
 <jsp:include page="../00_header.jsp"></jsp:include>
 <jsp:include page="../10_nav.jsp"></jsp:include>
 
-<h2 class="float-left">Product List<a href="/product/write" class="btn btn-outline-primary">Write</a></h2>
+<h2 class="float-left">Product List<a href="/product/write" class="btn btn-outline-secondary">Write</a></h2>
 <div class="float-right form-group">
 <form class="form-inline" action="/product/list">
 <select class="form-control" name="type">
@@ -40,7 +40,7 @@
 				<c:forEach items="${list }" var="pvo">
 				<tr>
 					<td>${pvo.pno }</td>
-					<td><a href="/product/detail?pno=${pvo.pno }&pageNum=${pgvo.cri.pageNum }&amount=${pgvo.cri.amount }&type=${pgvo.cri.type }&keyword=${pgvo.cri.keyword }">
+					<td><a href="/product/detail?pno=${pvo.pno }&pageNum=${pgvo.cri.pageNum }&amount=${pgvo.cri.amount }&type=${pgvo.cri.type }&keyword=${pgvo.cri.keyword }" style="color:black;">
 					${pvo.title }
 					<span class="badge badge-pill badge-info">${pvo.commentcnt }</span></a></td>
 					<td>${pvo.writer }</td>
